@@ -1,0 +1,2 @@
+// Default values basically same as Go programming language, with one exception:
+// enum default value is first value of options

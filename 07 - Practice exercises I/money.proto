@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+message money {
+    string currency = 1;
+    int64 integral = 2;
+    int64 decimal = 3;
+}

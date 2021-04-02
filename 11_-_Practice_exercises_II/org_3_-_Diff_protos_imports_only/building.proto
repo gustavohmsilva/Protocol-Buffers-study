@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+import "11_-_Practice_exercises_II/0rg_3_-_Diff_protos_imports_only/street.proto";
+
+message Building {
+        string name = 1;
+        string number = 2;
+        Street street = 3;
+}

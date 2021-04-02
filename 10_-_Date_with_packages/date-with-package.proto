@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package less10.date; // << name of THIS package
+
+message Date {
+        // year of the date, 1 to 9999,
+        uint32 year = 1;
+        // Month of the year. from 1 to 12
+        uint32 month = 2;
+        // day of month, from 1 to 31
+        uint32 day = 3;
+}

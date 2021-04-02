@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package eleven.city;
+
+message Building {
+        string name = 1;
+        string number = 2;
+        // Definition 
+        message Street {
+                string street_name = 1;
+                // Definition 
+                message City {
+                        string name = 1;
+                        string zip_code = 2;
+                        string country_code = 3;
+                }
+                // usage
+                City city = 2;
+        }
+        // usage
+        Street street = 3;
+}

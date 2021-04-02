@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package address.city;
+package city;
 
 message City {
         string name = 1;

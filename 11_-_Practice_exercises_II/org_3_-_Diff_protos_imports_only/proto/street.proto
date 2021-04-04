@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-import "11_-_Practice_exercises_II/0rg_3_-_Diff_protos_imports_only/city.proto";
+import "proto/city.proto";
 
 message Street {
         string street_name = 1;

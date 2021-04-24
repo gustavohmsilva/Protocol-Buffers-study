@@ -5,12 +5,53 @@ import (
 	"io/ioutil"
 	"log"
 
+	"github.com/gustavohmsilva/Protocol-Buffers-study/12_-_Protobuf-with_go/src/complexpb"
+	"github.com/gustavohmsilva/Protocol-Buffers-study/12_-_Protobuf-with_go/src/enumpb"
 	"github.com/gustavohmsilva/Protocol-Buffers-study/12_-_Protobuf-with_go/src/simplepb"
 	"google.golang.org/protobuf/encoding/protojson"
 	"google.golang.org/protobuf/proto"
 )
 
 func main() {
+	simpleProtoTests()
+	enumProtoTest()
+	complexProtoTest()
+}
+
+func complexProtoTest() {
+	cm := &complexpb.ComplexMessage{
+		OneDummy: &complexpb.DummyMessage{
+			Id:   1,
+			Name: "single dummy",
+		},
+		MultipleDummy: []*complexpb.DummyMessage{
+			{
+				Id:   1,
+				Name: "single multiple dummy",
+			}, {
+				Id:   2,
+				Name: "single multiple dummy II",
+			},
+		},
+	}
+
+	fmt.Println(&cm)
+	// printing name of empty fields as well:
+	fmt.Printf("%+v\n", cm)
+}
+
+func enumProtoTest() {
+	em := &enumpb.EnumMessage{
+		Id:           1,
+		DayOfTheWeek: enumpb.DayOfTheWeek_SATURDAY,
+	}
+
+	fmt.Println(em)
+	// printing name of empty fields as well:
+	fmt.Printf("%+v\n", em)
+}
+
+func simpleProtoTests() {
 	sm := doSimple()
 
 	// Write into file the generated simplepb.SimpleMessage
@@ -42,7 +83,6 @@ func main() {
 		panic(err)
 	}
 	fmt.Println("Success! ", newUnmarshaledSm)
-
 }
 
 func doSimple() *simplepb.SimpleMessage {
